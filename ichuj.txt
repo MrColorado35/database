@@ -1,0 +1,1023 @@
+mysql> select min(Composer) from Track;
++----------------------------------+
+| min(Composer)                    |
++----------------------------------+
+| A.Bouchard/J.Bouchard/S.Pearlman |
++----------------------------------+
+1 row in set (0.00 sec)
+mysql> tee ichuj.txt
+mysql> select AlbumId, Count(*) from Track
+    -> Group By AlbumId;
++---------+----------+
+| AlbumId | Count(*) |
++---------+----------+
+|       1 |       10 |
+|       2 |        1 |
+|       3 |        3 |
+|       4 |        8 |
+|       5 |       15 |
+|       6 |       13 |
+|       7 |       12 |
+|       8 |       14 |
+|       9 |        8 |
+|      10 |       14 |
+|      11 |       12 |
+|      12 |       12 |
+|      13 |        8 |
+|      14 |       13 |
+|      15 |        5 |
+|      16 |        7 |
+|      17 |       10 |
+|      18 |       17 |
+|      19 |       11 |
+|      20 |       11 |
+|      21 |       18 |
+|      22 |        3 |
+|      23 |       34 |
+|      24 |       23 |
+|      25 |       13 |
+|      26 |       17 |
+|      27 |       14 |
+|      28 |       10 |
+|      29 |       14 |
+|      30 |       14 |
+|      31 |        9 |
+|      32 |       14 |
+|      33 |       17 |
+|      34 |       17 |
+|      35 |       11 |
+|      36 |       17 |
+|      37 |       20 |
+|      38 |       12 |
+|      39 |       21 |
+|      40 |       12 |
+|      41 |       14 |
+|      42 |       14 |
+|      43 |        7 |
+|      44 |        6 |
+|      45 |       14 |
+|      46 |       13 |
+|      47 |       14 |
+|      48 |       13 |
+|      49 |       10 |
+|      50 |        4 |
+|      51 |       22 |
+|      52 |       15 |
+|      53 |       14 |
+|      54 |       20 |
+|      55 |       20 |
+|      56 |       15 |
+|      57 |       15 |
+|      58 |        9 |
+|      59 |        7 |
+|      60 |        7 |
+|      61 |       11 |
+|      62 |        7 |
+|      63 |       12 |
+|      64 |        9 |
+|      65 |        9 |
+|      66 |       10 |
+|      67 |       16 |
+|      68 |        9 |
+|      69 |       13 |
+|      70 |       13 |
+|      71 |       14 |
+|      72 |       18 |
+|      73 |       30 |
+|      74 |       12 |
+|      75 |       14 |
+|      76 |       15 |
+|      77 |       11 |
+|      78 |       14 |
+|      79 |       10 |
+|      80 |       10 |
+|      81 |       11 |
+|      82 |       13 |
+|      83 |       24 |
+|      84 |       16 |
+|      85 |       14 |
+|      86 |       15 |
+|      87 |        3 |
+|      88 |       12 |
+|      89 |       13 |
+|      90 |       12 |
+|      91 |       16 |
+|      92 |       14 |
+|      93 |       13 |
+|      94 |       11 |
+|      95 |       12 |
+|      96 |       11 |
+|      97 |       10 |
+|      98 |       11 |
+|      99 |       12 |
+|     100 |        9 |
+|     101 |       10 |
+|     102 |       18 |
+|     103 |       10 |
+|     104 |       10 |
+|     105 |       10 |
+|     106 |        9 |
+|     107 |        8 |
+|     108 |       10 |
+|     109 |        7 |
++---------+----------+
+109 rows in set (0.00 sec)
+
+mysql> tee ichuj.txt
+mysql> Select Album.Title, Count(*) from Track
+    -> inner join Album on Track.AlbumId = Album.AlbumId
+    -> Group By Track.AlbumId;
++-----------------------------------------------------------------+----------+
+| Title                                                           | Count(*) |
++-----------------------------------------------------------------+----------+
+| For Those About To Rock We Salute You                           |       10 |
+| Balls to the Wall                                               |        1 |
+| Restless and Wild                                               |        3 |
+| Let There Be Rock                                               |        8 |
+| Big Ones                                                        |       15 |
+| Jagged Little Pill                                              |       13 |
+| Facelift                                                        |       12 |
+| Warner 25 Anos                                                  |       14 |
+| Plays Metallica By Four Cellos                                  |        8 |
+| Audioslave                                                      |       14 |
+| Out Of Exile                                                    |       12 |
+| BackBeat Soundtrack                                             |       12 |
+| The Best Of Billy Cobham                                        |        8 |
+| Alcohol Fueled Brewtality Live! [Disc 1]                        |       13 |
+| Alcohol Fueled Brewtality Live! [Disc 2]                        |        5 |
+| Black Sabbath                                                   |        7 |
+| Black Sabbath Vol. 4 (Remaster)                                 |       10 |
+| Body Count                                                      |       17 |
+| Chemical Wedding                                                |       11 |
+| The Best Of Buddy Guy - The Millenium Collection                |       11 |
+| Prenda Minha                                                    |       18 |
+| Sozinho Remix Ao Vivo                                           |        3 |
+| Minha Historia                                                  |       34 |
+| Afrociberdelia                                                  |       23 |
+| Da Lama Ao Caos                                                 |       13 |
+| Acústico MTV [Live]                                             |       17 |
+| Cidade Negra - Hits                                             |       14 |
+| Na Pista                                                        |       10 |
+| Axé Bahia 2001                                                  |       14 |
+| BBC Sessions [Disc 1] [Live]                                    |       14 |
+| Bongo Fury                                                      |        9 |
+| Carnaval 2001                                                   |       14 |
+| Chill: Brazil (Disc 1)                                          |       17 |
+| Chill: Brazil (Disc 2)                                          |       17 |
+| Garage Inc. (Disc 1)                                            |       11 |
+| Greatest Hits II                                                |       17 |
+| Greatest Kiss                                                   |       20 |
+| Heart of the Night                                              |       12 |
+| International Superhits                                         |       21 |
+| Into The Light                                                  |       12 |
+| Meus Momentos                                                   |       14 |
+| Minha História                                                  |       14 |
+| MK III The Final Concerts [Disc 1]                              |        7 |
+| Physical Graffiti [Disc 1]                                      |        6 |
+| Sambas De Enredo 2001                                           |       14 |
+| Supernatural                                                    |       13 |
+| The Best of Ed Motta                                            |       14 |
+| The Essential Miles Davis [Disc 1]                              |       13 |
+| The Essential Miles Davis [Disc 2]                              |       10 |
+| The Final Concerts (Disc 2)                                     |        4 |
+| Up An' Atom                                                     |       22 |
+| Vinícius De Moraes - Sem Limite                                 |       15 |
+| Vozes do MPB                                                    |       14 |
+| Chronicle, Vol. 1                                               |       20 |
+| Chronicle, Vol. 2                                               |       20 |
+| Cássia Eller - Coleção Sem Limite [Disc 2]                      |       15 |
+| Cássia Eller - Sem Limite [Disc 1]                              |       15 |
+| Come Taste The Band                                             |        9 |
+| Deep Purple In Rock                                             |        7 |
+| Fireball                                                        |        7 |
+| Knocking at Your Back Door: The Best Of Deep Purple in the 80's |       11 |
+| Machine Head                                                    |        7 |
+| Purpendicular                                                   |       12 |
+| Slaves And Masters                                              |        9 |
+| Stormbringer                                                    |        9 |
+| The Battle Rages On                                             |       10 |
+| Vault: Def Leppard's Greatest Hits                              |       16 |
+| Outbreak                                                        |        9 |
+| Djavan Ao Vivo - Vol. 02                                        |       13 |
+| Djavan Ao Vivo - Vol. 1                                         |       13 |
+| Elis Regina-Minha História                                      |       14 |
+| The Cream Of Clapton                                            |       18 |
+| Unplugged                                                       |       30 |
+| Album Of The Year                                               |       12 |
+| Angel Dust                                                      |       14 |
+| King For A Day Fool For A Lifetime                              |       15 |
+| The Real Thing                                                  |       11 |
+| Deixa Entrar                                                    |       14 |
+| In Your Honor [Disc 1]                                          |       10 |
+| In Your Honor [Disc 2]                                          |       10 |
+| One By One                                                      |       11 |
+| The Colour And The Shape                                        |       13 |
+| My Way: The Best Of Frank Sinatra [Disc 1]                      |       24 |
+| Roda De Funk                                                    |       16 |
+| As Canções de Eu Tu Eles                                        |       14 |
+| Quanta Gente Veio Ver (Live)                                    |       15 |
+| Quanta Gente Veio ver--Bônus De Carnaval                        |        3 |
+| Faceless                                                        |       12 |
+| American Idiot                                                  |       13 |
+| Appetite for Destruction                                        |       12 |
+| Use Your Illusion I                                             |       16 |
+| Use Your Illusion II                                            |       14 |
+| Blue Moods                                                      |       13 |
+| A Matter of Life and Death                                      |       11 |
+| A Real Dead One                                                 |       12 |
+| A Real Live One                                                 |       11 |
+| Brave New World                                                 |       10 |
+| Dance Of Death                                                  |       11 |
+| Fear Of The Dark                                                |       12 |
+| Iron Maiden                                                     |        9 |
+| Killers                                                         |       10 |
+| Live After Death                                                |       18 |
+| Live At Donington 1992 (Disc 1)                                 |       10 |
+| Live At Donington 1992 (Disc 2)                                 |       10 |
+| No Prayer For The Dying                                         |       10 |
+| Piece Of Mind                                                   |        9 |
+| Powerslave                                                      |        8 |
+| Rock In Rio [CD1]                                               |       10 |
+| Rock In Rio [CD2]                                               |        7 |
++-----------------------------------------------------------------+----------+
+109 rows in set (0.00 sec)
+
+mysql> select AlbumId, MIN(UnitPrice) from Track
+    -> Group By AlbumId;
++---------+----------------+
+| AlbumId | MIN(UnitPrice) |
++---------+----------------+
+|       1 |           0.99 |
+|       2 |           0.99 |
+|       3 |           0.99 |
+|       4 |           0.99 |
+|       5 |           0.99 |
+|       6 |           0.99 |
+|       7 |           0.99 |
+|       8 |           0.99 |
+|       9 |           0.99 |
+|      10 |           0.99 |
+|      11 |           0.99 |
+|      12 |           0.99 |
+|      13 |           0.99 |
+|      14 |           0.99 |
+|      15 |           0.99 |
+|      16 |           0.99 |
+|      17 |           0.99 |
+|      18 |           0.99 |
+|      19 |           0.99 |
+|      20 |           0.99 |
+|      21 |           0.99 |
+|      22 |           0.99 |
+|      23 |           0.99 |
+|      24 |           0.99 |
+|      25 |           0.99 |
+|      26 |           0.99 |
+|      27 |           0.99 |
+|      28 |           0.99 |
+|      29 |           0.99 |
+|      30 |           0.99 |
+|      31 |           0.99 |
+|      32 |           0.99 |
+|      33 |           0.99 |
+|      34 |           0.99 |
+|      35 |           0.99 |
+|      36 |           0.99 |
+|      37 |           0.99 |
+|      38 |           0.99 |
+|      39 |           0.99 |
+|      40 |           0.99 |
+|      41 |           0.99 |
+|      42 |           0.99 |
+|      43 |           0.99 |
+|      44 |           0.99 |
+|      45 |           0.99 |
+|      46 |           0.99 |
+|      47 |           0.99 |
+|      48 |           0.99 |
+|      49 |           0.99 |
+|      50 |           0.99 |
+|      51 |           0.99 |
+|      52 |           0.99 |
+|      53 |           0.99 |
+|      54 |           0.99 |
+|      55 |           0.99 |
+|      56 |           0.99 |
+|      57 |           0.99 |
+|      58 |           0.99 |
+|      59 |           0.99 |
+|      60 |           0.99 |
+|      61 |           0.99 |
+|      62 |           0.99 |
+|      63 |           0.99 |
+|      64 |           0.99 |
+|      65 |           0.99 |
+|      66 |           0.99 |
+|      67 |           0.99 |
+|      68 |           0.99 |
+|      69 |           0.99 |
+|      70 |           0.99 |
+|      71 |           0.99 |
+|      72 |           0.99 |
+|      73 |           0.99 |
+|      74 |           0.99 |
+|      75 |           0.99 |
+|      76 |           0.99 |
+|      77 |           0.99 |
+|      78 |           0.99 |
+|      79 |           0.99 |
+|      80 |           0.99 |
+|      81 |           0.99 |
+|      82 |           0.99 |
+|      83 |           0.99 |
+|      84 |           0.99 |
+|      85 |           0.99 |
+|      86 |           0.99 |
+|      87 |           0.99 |
+|      88 |           0.99 |
+|      89 |           0.99 |
+|      90 |           0.99 |
+|      91 |           0.99 |
+|      92 |           0.99 |
+|      93 |           0.99 |
+|      94 |           0.99 |
+|      95 |           0.99 |
+|      96 |           0.99 |
+|      97 |           0.99 |
+|      98 |           0.99 |
+|      99 |           0.99 |
+|     100 |           0.99 |
+|     101 |           0.99 |
+|     102 |           0.99 |
+|     103 |           0.99 |
+|     104 |           0.99 |
+|     105 |           0.99 |
+|     106 |           0.99 |
+|     107 |           0.99 |
+|     108 |           0.99 |
+|     109 |           0.99 |
++---------+----------------+
+109 rows in set (0.00 sec)
+
+mysql> Select AlbumId, ROUND(SUM(UnitPrice), 2) From Track
+    -> Group By AlbumId;
++---------+--------------------------+
+| AlbumId | ROUND(SUM(UnitPrice), 2) |
++---------+--------------------------+
+|       1 |                     9.90 |
+|       2 |                     0.99 |
+|       3 |                     2.97 |
+|       4 |                     7.92 |
+|       5 |                    14.85 |
+|       6 |                    12.87 |
+|       7 |                    11.88 |
+|       8 |                    13.86 |
+|       9 |                     7.92 |
+|      10 |                    13.86 |
+|      11 |                    11.88 |
+|      12 |                    11.88 |
+|      13 |                     7.92 |
+|      14 |                    12.87 |
+|      15 |                     4.95 |
+|      16 |                     6.93 |
+|      17 |                     9.90 |
+|      18 |                    16.83 |
+|      19 |                    10.89 |
+|      20 |                    10.89 |
+|      21 |                    17.82 |
+|      22 |                     2.97 |
+|      23 |                    33.66 |
+|      24 |                    22.77 |
+|      25 |                    12.87 |
+|      26 |                    16.83 |
+|      27 |                    13.86 |
+|      28 |                     9.90 |
+|      29 |                    13.86 |
+|      30 |                    13.86 |
+|      31 |                     8.91 |
+|      32 |                    13.86 |
+|      33 |                    16.83 |
+|      34 |                    16.83 |
+|      35 |                    10.89 |
+|      36 |                    16.83 |
+|      37 |                    19.80 |
+|      38 |                    11.88 |
+|      39 |                    20.79 |
+|      40 |                    11.88 |
+|      41 |                    13.86 |
+|      42 |                    13.86 |
+|      43 |                     6.93 |
+|      44 |                     5.94 |
+|      45 |                    13.86 |
+|      46 |                    12.87 |
+|      47 |                    13.86 |
+|      48 |                    12.87 |
+|      49 |                     9.90 |
+|      50 |                     3.96 |
+|      51 |                    21.78 |
+|      52 |                    14.85 |
+|      53 |                    13.86 |
+|      54 |                    19.80 |
+|      55 |                    19.80 |
+|      56 |                    14.85 |
+|      57 |                    14.85 |
+|      58 |                     8.91 |
+|      59 |                     6.93 |
+|      60 |                     6.93 |
+|      61 |                    10.89 |
+|      62 |                     6.93 |
+|      63 |                    11.88 |
+|      64 |                     8.91 |
+|      65 |                     8.91 |
+|      66 |                     9.90 |
+|      67 |                    15.84 |
+|      68 |                     8.91 |
+|      69 |                    12.87 |
+|      70 |                    12.87 |
+|      71 |                    13.86 |
+|      72 |                    17.82 |
+|      73 |                    29.70 |
+|      74 |                    11.88 |
+|      75 |                    13.86 |
+|      76 |                    14.85 |
+|      77 |                    10.89 |
+|      78 |                    13.86 |
+|      79 |                     9.90 |
+|      80 |                     9.90 |
+|      81 |                    10.89 |
+|      82 |                    12.87 |
+|      83 |                    23.76 |
+|      84 |                    15.84 |
+|      85 |                    13.86 |
+|      86 |                    14.85 |
+|      87 |                     2.97 |
+|      88 |                    11.88 |
+|      89 |                    12.87 |
+|      90 |                    11.88 |
+|      91 |                    15.84 |
+|      92 |                    13.86 |
+|      93 |                    12.87 |
+|      94 |                    10.89 |
+|      95 |                    11.88 |
+|      96 |                    10.89 |
+|      97 |                     9.90 |
+|      98 |                    10.89 |
+|      99 |                    11.88 |
+|     100 |                     8.91 |
+|     101 |                     9.90 |
+|     102 |                    17.82 |
+|     103 |                     9.90 |
+|     104 |                     9.90 |
+|     105 |                     9.90 |
+|     106 |                     8.91 |
+|     107 |                     7.92 |
+|     108 |                     9.90 |
+|     109 |                     6.93 |
++---------+--------------------------+
+109 rows in set (0.00 sec)
+
+mysql> Select Album.Title, round(sum(UnitPrice), 2) From Track
+    -> Join Album on Track.AlbumId = Album.AlbumId
+    -> Group By Track.AlbumId;
++-----------------------------------------------------------------+--------------------------+
+| Title                                                           | round(sum(UnitPrice), 2) |
++-----------------------------------------------------------------+--------------------------+
+| For Those About To Rock We Salute You                           |                     9.90 |
+| Balls to the Wall                                               |                     0.99 |
+| Restless and Wild                                               |                     2.97 |
+| Let There Be Rock                                               |                     7.92 |
+| Big Ones                                                        |                    14.85 |
+| Jagged Little Pill                                              |                    12.87 |
+| Facelift                                                        |                    11.88 |
+| Warner 25 Anos                                                  |                    13.86 |
+| Plays Metallica By Four Cellos                                  |                     7.92 |
+| Audioslave                                                      |                    13.86 |
+| Out Of Exile                                                    |                    11.88 |
+| BackBeat Soundtrack                                             |                    11.88 |
+| The Best Of Billy Cobham                                        |                     7.92 |
+| Alcohol Fueled Brewtality Live! [Disc 1]                        |                    12.87 |
+| Alcohol Fueled Brewtality Live! [Disc 2]                        |                     4.95 |
+| Black Sabbath                                                   |                     6.93 |
+| Black Sabbath Vol. 4 (Remaster)                                 |                     9.90 |
+| Body Count                                                      |                    16.83 |
+| Chemical Wedding                                                |                    10.89 |
+| The Best Of Buddy Guy - The Millenium Collection                |                    10.89 |
+| Prenda Minha                                                    |                    17.82 |
+| Sozinho Remix Ao Vivo                                           |                     2.97 |
+| Minha Historia                                                  |                    33.66 |
+| Afrociberdelia                                                  |                    22.77 |
+| Da Lama Ao Caos                                                 |                    12.87 |
+| Acústico MTV [Live]                                             |                    16.83 |
+| Cidade Negra - Hits                                             |                    13.86 |
+| Na Pista                                                        |                     9.90 |
+| Axé Bahia 2001                                                  |                    13.86 |
+| BBC Sessions [Disc 1] [Live]                                    |                    13.86 |
+| Bongo Fury                                                      |                     8.91 |
+| Carnaval 2001                                                   |                    13.86 |
+| Chill: Brazil (Disc 1)                                          |                    16.83 |
+| Chill: Brazil (Disc 2)                                          |                    16.83 |
+| Garage Inc. (Disc 1)                                            |                    10.89 |
+| Greatest Hits II                                                |                    16.83 |
+| Greatest Kiss                                                   |                    19.80 |
+| Heart of the Night                                              |                    11.88 |
+| International Superhits                                         |                    20.79 |
+| Into The Light                                                  |                    11.88 |
+| Meus Momentos                                                   |                    13.86 |
+| Minha História                                                  |                    13.86 |
+| MK III The Final Concerts [Disc 1]                              |                     6.93 |
+| Physical Graffiti [Disc 1]                                      |                     5.94 |
+| Sambas De Enredo 2001                                           |                    13.86 |
+| Supernatural                                                    |                    12.87 |
+| The Best of Ed Motta                                            |                    13.86 |
+| The Essential Miles Davis [Disc 1]                              |                    12.87 |
+| The Essential Miles Davis [Disc 2]                              |                     9.90 |
+| The Final Concerts (Disc 2)                                     |                     3.96 |
+| Up An' Atom                                                     |                    21.78 |
+| Vinícius De Moraes - Sem Limite                                 |                    14.85 |
+| Vozes do MPB                                                    |                    13.86 |
+| Chronicle, Vol. 1                                               |                    19.80 |
+| Chronicle, Vol. 2                                               |                    19.80 |
+| Cássia Eller - Coleção Sem Limite [Disc 2]                      |                    14.85 |
+| Cássia Eller - Sem Limite [Disc 1]                              |                    14.85 |
+| Come Taste The Band                                             |                     8.91 |
+| Deep Purple In Rock                                             |                     6.93 |
+| Fireball                                                        |                     6.93 |
+| Knocking at Your Back Door: The Best Of Deep Purple in the 80's |                    10.89 |
+| Machine Head                                                    |                     6.93 |
+| Purpendicular                                                   |                    11.88 |
+| Slaves And Masters                                              |                     8.91 |
+| Stormbringer                                                    |                     8.91 |
+| The Battle Rages On                                             |                     9.90 |
+| Vault: Def Leppard's Greatest Hits                              |                    15.84 |
+| Outbreak                                                        |                     8.91 |
+| Djavan Ao Vivo - Vol. 02                                        |                    12.87 |
+| Djavan Ao Vivo - Vol. 1                                         |                    12.87 |
+| Elis Regina-Minha História                                      |                    13.86 |
+| The Cream Of Clapton                                            |                    17.82 |
+| Unplugged                                                       |                    29.70 |
+| Album Of The Year                                               |                    11.88 |
+| Angel Dust                                                      |                    13.86 |
+| King For A Day Fool For A Lifetime                              |                    14.85 |
+| The Real Thing                                                  |                    10.89 |
+| Deixa Entrar                                                    |                    13.86 |
+| In Your Honor [Disc 1]                                          |                     9.90 |
+| In Your Honor [Disc 2]                                          |                     9.90 |
+| One By One                                                      |                    10.89 |
+| The Colour And The Shape                                        |                    12.87 |
+| My Way: The Best Of Frank Sinatra [Disc 1]                      |                    23.76 |
+| Roda De Funk                                                    |                    15.84 |
+| As Canções de Eu Tu Eles                                        |                    13.86 |
+| Quanta Gente Veio Ver (Live)                                    |                    14.85 |
+| Quanta Gente Veio ver--Bônus De Carnaval                        |                     2.97 |
+| Faceless                                                        |                    11.88 |
+| American Idiot                                                  |                    12.87 |
+| Appetite for Destruction                                        |                    11.88 |
+| Use Your Illusion I                                             |                    15.84 |
+| Use Your Illusion II                                            |                    13.86 |
+| Blue Moods                                                      |                    12.87 |
+| A Matter of Life and Death                                      |                    10.89 |
+| A Real Dead One                                                 |                    11.88 |
+| A Real Live One                                                 |                    10.89 |
+| Brave New World                                                 |                     9.90 |
+| Dance Of Death                                                  |                    10.89 |
+| Fear Of The Dark                                                |                    11.88 |
+| Iron Maiden                                                     |                     8.91 |
+| Killers                                                         |                     9.90 |
+| Live After Death                                                |                    17.82 |
+| Live At Donington 1992 (Disc 1)                                 |                     9.90 |
+| Live At Donington 1992 (Disc 2)                                 |                     9.90 |
+| No Prayer For The Dying                                         |                     9.90 |
+| Piece Of Mind                                                   |                     8.91 |
+| Powerslave                                                      |                     7.92 |
+| Rock In Rio [CD1]                                               |                     9.90 |
+| Rock In Rio [CD2]                                               |                     6.93 |
++-----------------------------------------------------------------+--------------------------+
+109 rows in set (0.00 sec)
+
+mysql> select Album.Title, Composer as Who, round(sum(UnitPrice), 2) From Track
+    -> Join Album on Track.AlbumId = Album.AlbumId
+    -> Group by Track.AlbumId;
+ERROR 1055 (42000): Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'Chinook.Track.Composer' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+mysql> select * from MediaType
+    -> ;
++-------------+-----------------------------+
+| MediaTypeId | Name                        |
++-------------+-----------------------------+
+|           1 | MPEG audio file             |
+|           2 | Protected AAC audio file    |
+|           3 | Protected MPEG-4 video file |
+|           4 | Purchased AAC audio file    |
+|           5 | AAC audio file              |
++-------------+-----------------------------+
+5 rows in set (0.00 sec)
+
+mysql> Insert into MediaType (Name)
+    -> Values ("MP4");
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from mediaType;
+ERROR 1146 (42S02): Table 'Chinook.mediaType' doesn't exist
+mysql> select * from MediaType;
++-------------+-----------------------------+
+| MediaTypeId | Name                        |
++-------------+-----------------------------+
+|           1 | MPEG audio file             |
+|           2 | Protected AAC audio file    |
+|           3 | Protected MPEG-4 video file |
+|           4 | Purchased AAC audio file    |
+|           5 | AAC audio file              |
+|           6 | MP4                         |
++-------------+-----------------------------+
+6 rows in set (0.00 sec)
+
+mysql> select * from Artist;
++----------+---------------------------------------------------------------------------------------+
+| ArtistId | Name                                                                                  |
++----------+---------------------------------------------------------------------------------------+
+|        1 | AC/DC                                                                                 |
+|        2 | Accept                                                                                |
+|        3 | Aerosmith                                                                             |
+|        4 | Alanis Morissette                                                                     |
+|        5 | Alice In Chains                                                                       |
+|        6 | Antônio Carlos Jobim                                                                  |
+|        7 | Apocalyptica                                                                          |
+|        8 | Audioslave                                                                            |
+|        9 | BackBeat                                                                              |
+|       10 | Billy Cobham                                                                          |
+|       11 | Black Label Society                                                                   |
+|       12 | Black Sabbath                                                                         |
+|       13 | Body Count                                                                            |
+|       14 | Bruce Dickinson                                                                       |
+|       15 | Buddy Guy                                                                             |
+|       16 | Caetano Veloso                                                                        |
+|       17 | Chico Buarque                                                                         |
+|       18 | Chico Science & Nação Zumbi                                                           |
+|       19 | Cidade Negra                                                                          |
+|       20 | Cláudio Zoli                                                                          |
+|       21 | Various Artists                                                                       |
+|       22 | Led Zeppelin                                                                          |
+|       23 | Frank Zappa & Captain Beefheart                                                       |
+|       24 | Marcos Valle                                                                          |
+|       25 | Milton Nascimento & Bebeto                                                            |
+|       26 | Azymuth                                                                               |
+|       27 | Gilberto Gil                                                                          |
+|       28 | João Gilberto                                                                         |
+|       29 | Bebel Gilberto                                                                        |
+|       30 | Jorge Vercilo                                                                         |
+|       31 | Baby Consuelo                                                                         |
+|       32 | Ney Matogrosso                                                                        |
+|       33 | Luiz Melodia                                                                          |
+|       34 | Nando Reis                                                                            |
+|       35 | Pedro Luís & A Parede                                                                 |
+|       36 | O Rappa                                                                               |
+|       37 | Ed Motta                                                                              |
+|       38 | Banda Black Rio                                                                       |
+|       39 | Fernanda Porto                                                                        |
+|       40 | Os Cariocas                                                                           |
+|       41 | Elis Regina                                                                           |
+|       42 | Milton Nascimento                                                                     |
+|       43 | A Cor Do Som                                                                          |
+|       44 | Kid Abelha                                                                            |
+|       45 | Sandra De Sá                                                                          |
+|       46 | Jorge Ben                                                                             |
+|       47 | Hermeto Pascoal                                                                       |
+|       48 | Barão Vermelho                                                                        |
+|       49 | Edson, DJ Marky & DJ Patife Featuring Fernanda Porto                                  |
+|       50 | Metallica                                                                             |
+|       51 | Queen                                                                                 |
+|       52 | Kiss                                                                                  |
+|       53 | Spyro Gyra                                                                            |
+|       54 | Green Day                                                                             |
+|       55 | David Coverdale                                                                       |
+|       56 | Gonzaguinha                                                                           |
+|       57 | Os Mutantes                                                                           |
+|       58 | Deep Purple                                                                           |
+|       59 | Santana                                                                               |
+|       60 | Santana Feat. Dave Matthews                                                           |
+|       61 | Santana Feat. Everlast                                                                |
+|       62 | Santana Feat. Rob Thomas                                                              |
+|       63 | Santana Feat. Lauryn Hill & Cee-Lo                                                    |
+|       64 | Santana Feat. The Project G&B                                                         |
+|       65 | Santana Feat. Maná                                                                    |
+|       66 | Santana Feat. Eagle-Eye Cherry                                                        |
+|       67 | Santana Feat. Eric Clapton                                                            |
+|       68 | Miles Davis                                                                           |
+|       69 | Gene Krupa                                                                            |
+|       70 | Toquinho & Vinícius                                                                   |
+|       71 | Vinícius De Moraes & Baden Powell                                                     |
+|       72 | Vinícius De Moraes                                                                    |
+|       73 | Vinícius E Qurteto Em Cy                                                              |
+|       74 | Vinícius E Odette Lara                                                                |
+|       75 | Vinicius, Toquinho & Quarteto Em Cy                                                   |
+|       76 | Creedence Clearwater Revival                                                          |
+|       77 | Cássia Eller                                                                          |
+|       78 | Def Leppard                                                                           |
+|       79 | Dennis Chambers                                                                       |
+|       80 | Djavan                                                                                |
+|       81 | Eric Clapton                                                                          |
+|       82 | Faith No More                                                                         |
+|       83 | Falamansa                                                                             |
+|       84 | Foo Fighters                                                                          |
+|       85 | Frank Sinatra                                                                         |
+|       86 | Funk Como Le Gusta                                                                    |
+|       87 | Godsmack                                                                              |
+|       88 | Guns N' Roses                                                                         |
+|       89 | Incognito                                                                             |
+|       90 | Iron Maiden                                                                           |
+|       91 | James Brown                                                                           |
+|       92 | Jamiroquai                                                                            |
+|       93 | JET                                                                                   |
+|       94 | Jimi Hendrix                                                                          |
+|       95 | Joe Satriani                                                                          |
+|       96 | Jota Quest                                                                            |
+|       97 | João Suplicy                                                                          |
+|       98 | Judas Priest                                                                          |
+|       99 | Legião Urbana                                                                         |
+|      100 | Lenny Kravitz                                                                         |
+|      101 | Lulu Santos                                                                           |
+|      102 | Marillion                                                                             |
+|      103 | Marisa Monte                                                                          |
+|      104 | Marvin Gaye                                                                           |
+|      105 | Men At Work                                                                           |
+|      106 | Motörhead                                                                             |
+|      107 | Motörhead & Girlschool                                                                |
+|      108 | Mônica Marianno                                                                       |
+|      109 | Mötley Crüe                                                                           |
+|      110 | Nirvana                                                                               |
+|      111 | O Terço                                                                               |
+|      112 | Olodum                                                                                |
+|      113 | Os Paralamas Do Sucesso                                                               |
+|      114 | Ozzy Osbourne                                                                         |
+|      115 | Page & Plant                                                                          |
+|      116 | Passengers                                                                            |
+|      117 | Paul D'Ianno                                                                          |
+|      118 | Pearl Jam                                                                             |
+|      119 | Peter Tosh                                                                            |
+|      120 | Pink Floyd                                                                            |
+|      121 | Planet Hemp                                                                           |
+|      122 | R.E.M. Feat. Kate Pearson                                                             |
+|      123 | R.E.M. Feat. KRS-One                                                                  |
+|      124 | R.E.M.                                                                                |
+|      125 | Raimundos                                                                             |
+|      126 | Raul Seixas                                                                           |
+|      127 | Red Hot Chili Peppers                                                                 |
+|      128 | Rush                                                                                  |
+|      129 | Simply Red                                                                            |
+|      130 | Skank                                                                                 |
+|      131 | Smashing Pumpkins                                                                     |
+|      132 | Soundgarden                                                                           |
+|      133 | Stevie Ray Vaughan & Double Trouble                                                   |
+|      134 | Stone Temple Pilots                                                                   |
+|      135 | System Of A Down                                                                      |
+|      136 | Terry Bozzio, Tony Levin & Steve Stevens                                              |
+|      137 | The Black Crowes                                                                      |
+|      138 | The Clash                                                                             |
+|      139 | The Cult                                                                              |
+|      140 | The Doors                                                                             |
+|      141 | The Police                                                                            |
+|      142 | The Rolling Stones                                                                    |
+|      143 | The Tea Party                                                                         |
+|      144 | The Who                                                                               |
+|      145 | Tim Maia                                                                              |
+|      146 | Titãs                                                                                 |
+|      147 | Battlestar Galactica                                                                  |
+|      148 | Heroes                                                                                |
+|      149 | Lost                                                                                  |
+|      150 | U2                                                                                    |
+|      151 | UB40                                                                                  |
+|      152 | Van Halen                                                                             |
+|      153 | Velvet Revolver                                                                       |
+|      154 | Whitesnake                                                                            |
+|      155 | Zeca Pagodinho                                                                        |
+|      156 | The Office                                                                            |
+|      157 | Dread Zeppelin                                                                        |
+|      158 | Battlestar Galactica (Classic)                                                        |
+|      159 | Aquaman                                                                               |
+|      160 | Christina Aguilera featuring BigElf                                                   |
+|      161 | Aerosmith & Sierra Leone's Refugee Allstars                                           |
+|      162 | Los Lonely Boys                                                                       |
+|      163 | Corinne Bailey Rae                                                                    |
+|      164 | Dhani Harrison & Jakob Dylan                                                          |
+|      165 | Jackson Browne                                                                        |
+|      166 | Avril Lavigne                                                                         |
+|      167 | Big & Rich                                                                            |
+|      168 | Youssou N'Dour                                                                        |
+|      169 | Black Eyed Peas                                                                       |
+|      170 | Jack Johnson                                                                          |
+|      171 | Ben Harper                                                                            |
+|      172 | Snow Patrol                                                                           |
+|      173 | Matisyahu                                                                             |
+|      174 | The Postal Service                                                                    |
+|      175 | Jaguares                                                                              |
+|      176 | The Flaming Lips                                                                      |
+|      177 | Jack's Mannequin & Mick Fleetwood                                                     |
+|      178 | Regina Spektor                                                                        |
+|      179 | Scorpions                                                                             |
+|      180 | House Of Pain                                                                         |
+|      181 | Xis                                                                                   |
+|      182 | Nega Gizza                                                                            |
+|      183 | Gustavo & Andres Veiga & Salazar                                                      |
+|      184 | Rodox                                                                                 |
+|      185 | Charlie Brown Jr.                                                                     |
+|      186 | Pedro Luís E A Parede                                                                 |
+|      187 | Los Hermanos                                                                          |
+|      188 | Mundo Livre S/A                                                                       |
+|      189 | Otto                                                                                  |
+|      190 | Instituto                                                                             |
+|      191 | Nação Zumbi                                                                           |
+|      192 | DJ Dolores & Orchestra Santa Massa                                                    |
+|      193 | Seu Jorge                                                                             |
+|      194 | Sabotage E Instituto                                                                  |
+|      195 | Stereo Maracana                                                                       |
+|      196 | Cake                                                                                  |
+|      197 | Aisha Duo                                                                             |
+|      198 | Habib Koité and Bamada                                                                |
+|      199 | Karsh Kale                                                                            |
+|      200 | The Posies                                                                            |
+|      201 | Luciana Souza/Romero Lubambo                                                          |
+|      202 | Aaron Goldberg                                                                        |
+|      203 | Nicolaus Esterhazy Sinfonia                                                           |
+|      204 | Temple of the Dog                                                                     |
+|      205 | Chris Cornell                                                                         |
+|      206 | Alberto Turco & Nova Schola Gregoriana                                                |
+|      207 | Richard Marlow & The Choir of Trinity College, Cambridge                              |
+|      208 | English Concert & Trevor Pinnock                                                      |
+|      209 | Anne-Sophie Mutter, Herbert Von Karajan & Wiener Philharmoniker                       |
+|      210 | Hilary Hahn, Jeffrey Kahane, Los Angeles Chamber Orchestra & Margaret Batjer          |
+|      211 | Wilhelm Kempff                                                                        |
+|      212 | Yo-Yo Ma                                                                              |
+|      213 | Scholars Baroque Ensemble                                                             |
+|      214 | Academy of St. Martin in the Fields & Sir Neville Marriner                            |
+|      215 | Academy of St. Martin in the Fields Chamber Ensemble & Sir Neville Marriner           |
+|      216 | Berliner Philharmoniker, Claudio Abbado & Sabine Meyer                                |
+|      217 | Royal Philharmonic Orchestra & Sir Thomas Beecham                                     |
+|      218 | Orchestre Révolutionnaire et Romantique & John Eliot Gardiner                         |
+|      219 | Britten Sinfonia, Ivor Bolton & Lesley Garrett                                        |
+|      220 | Chicago Symphony Chorus, Chicago Symphony Orchestra & Sir Georg Solti                 |
+|      221 | Sir Georg Solti & Wiener Philharmoniker                                               |
+|      222 | Academy of St. Martin in the Fields, John Birch, Sir Neville Marriner & Sylvia McNair |
+|      223 | London Symphony Orchestra & Sir Charles Mackerras                                     |
+|      224 | Barry Wordsworth & BBC Concert Orchestra                                              |
+|      225 | Herbert Von Karajan, Mirella Freni & Wiener Philharmoniker                            |
+|      226 | Eugene Ormandy                                                                        |
+|      227 | Luciano Pavarotti                                                                     |
+|      228 | Leonard Bernstein & New York Philharmonic                                             |
+|      229 | Boston Symphony Orchestra & Seiji Ozawa                                               |
+|      230 | Aaron Copland & London Symphony Orchestra                                             |
+|      231 | Ton Koopman                                                                           |
+|      232 | Sergei Prokofiev & Yuri Temirkanov                                                    |
+|      233 | Chicago Symphony Orchestra & Fritz Reiner                                             |
+|      234 | Orchestra of The Age of Enlightenment                                                 |
+|      235 | Emanuel Ax, Eugene Ormandy & Philadelphia Orchestra                                   |
+|      236 | James Levine                                                                          |
+|      237 | Berliner Philharmoniker & Hans Rosbaud                                                |
+|      238 | Maurizio Pollini                                                                      |
+|      239 | Academy of St. Martin in the Fields, Sir Neville Marriner & William Bennett           |
+|      240 | Gustav Mahler                                                                         |
+|      241 | Felix Schmidt, London Symphony Orchestra & Rafael Frühbeck de Burgos                  |
+|      242 | Edo de Waart & San Francisco Symphony                                                 |
+|      243 | Antal Doráti & London Symphony Orchestra                                              |
+|      244 | Choir Of Westminster Abbey & Simon Preston                                            |
+|      245 | Michael Tilson Thomas & San Francisco Symphony                                        |
+|      246 | Chor der Wiener Staatsoper, Herbert Von Karajan & Wiener Philharmoniker               |
+|      247 | The King's Singers                                                                    |
+|      248 | Berliner Philharmoniker & Herbert Von Karajan                                         |
+|      249 | Sir Georg Solti, Sumi Jo & Wiener Philharmoniker                                      |
+|      250 | Christopher O'Riley                                                                   |
+|      251 | Fretwork                                                                              |
+|      252 | Amy Winehouse                                                                         |
+|      253 | Calexico                                                                              |
+|      254 | Otto Klemperer & Philharmonia Orchestra                                               |
+|      255 | Yehudi Menuhin                                                                        |
+|      256 | Philharmonia Orchestra & Sir Neville Marriner                                         |
+|      257 | Academy of St. Martin in the Fields, Sir Neville Marriner & Thurston Dart             |
+|      258 | Les Arts Florissants & William Christie                                               |
+|      259 | The 12 Cellists of The Berlin Philharmonic                                            |
+|      260 | Adrian Leaper & Doreen de Feis                                                        |
+|      261 | Roger Norrington, London Classical Players                                            |
+|      262 | Charles Dutoit & L'Orchestre Symphonique de Montréal                                  |
+|      263 | Equale Brass Ensemble, John Eliot Gardiner & Munich Monteverdi Orchestra and Choir    |
+|      264 | Kent Nagano and Orchestre de l'Opéra de Lyon                                          |
+|      265 | Julian Bream                                                                          |
+|      266 | Martin Roscoe                                                                         |
+|      267 | Göteborgs Symfoniker & Neeme Järvi                                                    |
+|      268 | Itzhak Perlman                                                                        |
+|      269 | Michele Campanella                                                                    |
+|      270 | Gerald Moore                                                                          |
+|      271 | Mela Tenenbaum, Pro Musica Prague & Richard Kapp                                      |
+|      272 | Emerson String Quartet                                                                |
+|      273 | C. Monteverdi, Nigel Rogers - Chiaroscuro; London Baroque; London Cornett & Sackbu    |
+|      274 | Nash Ensemble                                                                         |
+|      275 | Philip Glass Ensemble                                                                 |
++----------+---------------------------------------------------------------------------------------+
+275 rows in set (0.00 sec)
+
+mysql> Insert into Album (Title, ArtistId)
+    -> Values ('Boy', 150);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * form Album
+    -> where ArtistId = 150;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'form Album
+where ArtistId = 150' at line 1
+mysql> select * from Album
+    -> where ArtistId = 150;
++---------+------------------------------------------------------------------+----------+
+| AlbumId | Title                                                            | ArtistId |
++---------+------------------------------------------------------------------+----------+
+|     232 | Achtung Baby                                                     |      150 |
+|     233 | All That You Can't Leave Behind                                  |      150 |
+|     234 | B-Sides 1980-1990                                                |      150 |
+|     235 | How To Dismantle An Atomic Bomb                                  |      150 |
+|     236 | Pop                                                              |      150 |
+|     237 | Rattle And Hum                                                   |      150 |
+|     238 | The Best Of 1980-1990                                            |      150 |
+|     239 | War                                                              |      150 |
+|     240 | Zooropa                                                          |      150 |
+|     255 | Instant Karma: The Amnesty International Campaign to Save Darfur |      150 |
+|     348 | Boy                                                              |      150 |
++---------+------------------------------------------------------------------+----------+
+11 rows in set (0.00 sec)
+
+mysql> select Title, Album.ArtistId as Artist, Artist.Name from Album
+    -> join Artist on Album.ArtistId = Artist.ArtistId
+    -> where ArtistId = 150;
+ERROR 1052 (23000): Column 'ArtistId' in where clause is ambiguous
+mysql> select Title, Album.ArtistId as Artist, Artist.Name from Album
+    -> join Artist on Album.ArtistId = Artist.ArtistId
+    -> where Album.ArtistId = 150;
++------------------------------------------------------------------+--------+------+
+| Title                                                            | Artist | Name |
++------------------------------------------------------------------+--------+------+
+| Achtung Baby                                                     |    150 | U2   |
+| All That You Can't Leave Behind                                  |    150 | U2   |
+| B-Sides 1980-1990                                                |    150 | U2   |
+| How To Dismantle An Atomic Bomb                                  |    150 | U2   |
+| Pop                                                              |    150 | U2   |
+| Rattle And Hum                                                   |    150 | U2   |
+| The Best Of 1980-1990                                            |    150 | U2   |
+| War                                                              |    150 | U2   |
+| Zooropa                                                          |    150 | U2   |
+| Instant Karma: The Amnesty International Campaign to Save Darfur |    150 | U2   |
+| Boy                                                              |    150 | U2   |
++------------------------------------------------------------------+--------+------+
+11 rows in set (0.00 sec)
+
+mysql> select Title, Artist.Name as Artist from Album
+    -> join Artist on Album.ArtistId = Artist.ArtistId
+    -> where Album.ArtistId = 150;
++------------------------------------------------------------------+--------+
+| Title                                                            | Artist |
++------------------------------------------------------------------+--------+
+| Achtung Baby                                                     | U2     |
+| All That You Can't Leave Behind                                  | U2     |
+| B-Sides 1980-1990                                                | U2     |
+| How To Dismantle An Atomic Bomb                                  | U2     |
+| Pop                                                              | U2     |
+| Rattle And Hum                                                   | U2     |
+| The Best Of 1980-1990                                            | U2     |
+| War                                                              | U2     |
+| Zooropa                                                          | U2     |
+| Instant Karma: The Amnesty International Campaign to Save Darfur | U2     |
+| Boy                                                              | U2     |
++------------------------------------------------------------------+--------+
+11 rows in set (0.00 sec)
+
+mysql>  Insert into Track (Name, AlbumId, GenreId, Composer, Milliseconds, Bytes, UnitPrice)
+    -> values("Extra Track", 348, 1, "U2", 290000, 1234, 0.99);
+ERROR 1364 (HY000): Field 'MediaTypeId' doesn't have a default value
+mysql> Insert into Track (Name, AlbumId, MediaTypeId,  GenreId, Composer, Milliseconds, Bytes, UnitPrice)
+    -> values("Extra Track", 348, 6, 1, "U2", 290000, 1234, 0.99);
+Query OK, 1 row affected (0.02 sec)
+
+mysql> select * from Track
+    -> where Composer = 'U2';
++---------+-------------+---------+-------------+---------+----------+--------------+-------+-----------+
+| TrackId | Name        | AlbumId | MediaTypeId | GenreId | Composer | Milliseconds | Bytes | UnitPrice |
++---------+-------------+---------+-------------+---------+----------+--------------+-------+-----------+
+|    1369 | Extra Track |     348 |           6 |       1 | U2       |       290000 |  1234 |      0.99 |
++---------+-------------+---------+-------------+---------+----------+--------------+-------+-----------+
+1 row in set (0.00 sec)
+
+mysql> Insert into Track (Name, AlbumId, MediaTypeId,  GenreId, Composer, Milliseconds, Bytes, UnitPrice)
+    -> values ("Twilight", 348, 6, 1, 'U2', 280000, 1234, 0.99)
+    -> values ("The Ocean", 348, 6, 1, 'U2', 220000, 2344, 0.99);
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'values ("The Ocean", 348, 6, 1, 'U2', 220000, 2344, 0.99)' at line 3
+mysql> Insert into Track (Name, AlbumId, MediaTypeId,  GenreId, Composer, Milliseconds, Bytes, UnitPrice)
+    -> values ("Twilight", 348, 6, 1, 'U2', 280000, 1234, 0.99),
+    -> ("The Ocean", 348, 6, 1, 'U2', 220000, 2344, 0.99);
+Query OK, 2 rows affected (0.02 sec)
+Records: 2  Duplicates: 0  Warnings: 0
+
+mysql> select * from Track
+    -> where Composer = 'U2';
++---------+-------------+---------+-------------+---------+----------+--------------+-------+-----------+
+| TrackId | Name        | AlbumId | MediaTypeId | GenreId | Composer | Milliseconds | Bytes | UnitPrice |
++---------+-------------+---------+-------------+---------+----------+--------------+-------+-----------+
+|    1369 | Extra Track |     348 |           6 |       1 | U2       |       290000 |  1234 |      0.99 |
+|    1370 | Twilight    |     348 |           6 |       1 | U2       |       280000 |  1234 |      0.99 |
+|    1371 | The Ocean   |     348 |           6 |       1 | U2       |       220000 |  2344 |      0.99 |
++---------+-------------+---------+-------------+---------+----------+--------------+-------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> exit

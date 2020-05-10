@@ -40,3 +40,4 @@ mysql> desc Artist;
 2 rows in set (0.00 sec)
 
 mysql> notee
+
